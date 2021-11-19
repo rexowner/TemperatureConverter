@@ -56,13 +56,13 @@
 		AAA8D0D4273C78A100E06924 /* TemperatureConverter */ = {
 			isa = PBXGroup;
 			children = (
+				AA82BC482748427800EE35DE /* TemperatureModel.swift */,
 				AACA93CD2746247E00482EB6 /* ScaleDetail.swift */,
 				AAA8D0D5273C78A100E06924 /* TemperatureConverterApp.swift */,
 				AAA8D0D7273C78A100E06924 /* ContentView.swift */,
 				AAA8D0D9273C78A200E06924 /* Assets.xcassets */,
 				AAA8D0DE273C78A200E06924 /* Info.plist */,
 				AAA8D0DB273C78A200E06924 /* Preview Content */,
-				AA82BC482748427800EE35DE /* TemperatureModel.swift */,
 			);
 			path = TemperatureConverter;
 			sourceTree = "<group>";
