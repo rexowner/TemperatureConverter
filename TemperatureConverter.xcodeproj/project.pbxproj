@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA82BC492748427800EE35DE /* TemperatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82BC482748427800EE35DE /* TemperatureModel.swift */; };
 		AAA8D0D6273C78A100E06924 /* TemperatureConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8D0D5273C78A100E06924 /* TemperatureConverterApp.swift */; };
 		AAA8D0D8273C78A100E06924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8D0D7273C78A100E06924 /* ContentView.swift */; };
 		AAA8D0DA273C78A200E06924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA8D0D9273C78A200E06924 /* Assets.xcassets */; };
 		AAA8D0DD273C78A200E06924 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA8D0DC273C78A200E06924 /* Preview Assets.xcassets */; };
+		AACA93CE2746247E00482EB6 /* ScaleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACA93CD2746247E00482EB6 /* ScaleDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA82BC482748427800EE35DE /* TemperatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureModel.swift; sourceTree = "<group>"; };
 		AAA8D0D2273C78A100E06924 /* TemperatureConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemperatureConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA8D0D5273C78A100E06924 /* TemperatureConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverterApp.swift; sourceTree = "<group>"; };
 		AAA8D0D7273C78A100E06924 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AAA8D0D9273C78A200E06924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAA8D0DC273C78A200E06924 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAA8D0DE273C78A200E06924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AACA93CD2746247E00482EB6 /* ScaleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +56,13 @@
 		AAA8D0D4273C78A100E06924 /* TemperatureConverter */ = {
 			isa = PBXGroup;
 			children = (
+				AACA93CD2746247E00482EB6 /* ScaleDetail.swift */,
 				AAA8D0D5273C78A100E06924 /* TemperatureConverterApp.swift */,
 				AAA8D0D7273C78A100E06924 /* ContentView.swift */,
 				AAA8D0D9273C78A200E06924 /* Assets.xcassets */,
 				AAA8D0DE273C78A200E06924 /* Info.plist */,
 				AAA8D0DB273C78A200E06924 /* Preview Content */,
+				AA82BC482748427800EE35DE /* TemperatureModel.swift */,
 			);
 			path = TemperatureConverter;
 			sourceTree = "<group>";
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA82BC492748427800EE35DE /* TemperatureModel.swift in Sources */,
 				AAA8D0D8273C78A100E06924 /* ContentView.swift in Sources */,
 				AAA8D0D6273C78A100E06924 /* TemperatureConverterApp.swift in Sources */,
+				AACA93CE2746247E00482EB6 /* ScaleDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
