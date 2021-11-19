@@ -9,8 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     @GestureState private var offset: CGSize = .zero
-    
     @State private var location: CGPoint = CGPoint(x: 50, y:200)
+    
+    let thermometerHeight: CGFloat
+    let thermometerWidth: CGFloat
+    let thermometerYOffset: CGFloat
+    let bulbDiameter: CGFloat = 60
+
+    init() {
+        thermometerHeight = 400
+        thermometerWidth = 40
+        thermometerYOffset = 20
+    }
     
     var body: some View {
 
@@ -64,21 +74,26 @@ struct ContentView: View {
                     Rectangle()
                         .fill(Color.red)
                         .border(Color.black, width: 1)
-                        .frame(width: 40, height: 400)
+                        .cornerRadius(20)
+                        .frame(width: thermometerWidth, height: thermometerHeight)
                     Rectangle()
                         .fill(Color.white)
                         .border(Color.black, width: 1)
-                        .frame(width: 40, height: location.y)
-
+                        .frame(width: thermometerWidth, height: location.y)
                     Circle()
                         .fill(Color.purple)
-                        .frame(width: 36, height:36)
+                        .frame(width: thermometerWidth, height:thermometerWidth)
                         .position(location)
                         .gesture(dragTemperature)
                     Circle()
                         .fill(Color.red)
-                        .frame(width:60, height: 60)
-                        .position( CGPoint(x: 50, y:400))
+                        .frame(width:bulbDiameter, height: bulbDiameter)
+                        .position( CGPoint(x: 50, y:thermometerHeight))
+                    Circle()
+                        .fill(Color.purple)
+                        .frame(width: thermometerWidth, height:thermometerWidth)
+                        .position(location)
+                        .gesture(dragTemperature)
                 }
                 .frame(width: 100)
                 VStack {
@@ -89,11 +104,9 @@ struct ContentView: View {
                     Text("Absolute Zero")
                     .foregroundColor(.black)
                     .font(.title)
-                        .position(x: 0, y: 400)
-
+                        .position(x: 0, y: thermometerHeight)
                 }
             }
-            Spacer()
         }
 
     }

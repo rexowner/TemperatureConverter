@@ -14,16 +14,16 @@ enum TemperatureScale {
     case kelvin
     case rankine
 }
-// NOT SURE ABOVE ENUEM NEEDED
+// NOT SURE ABOVE ENUM NEEDED
 
 struct TemperatureModel {
     
     // CONSTANTS
-    let celsiusAbsoluteZero = -273.15
-    let rankineMultiplier = 1.8
-    let fahrenheitAbsoluteZero = -459.67
+    let celsiusAbsoluteZero = -273.15    // Equivalent to Kelvin = 0
+    let rankineMultiplier = 1.8          // Rankine degrees vs. Kelvin degrees
+    let fahrenheitAbsoluteZero = -459.67 // Equivalent to Rankine = 0
     
-    var kelvin: Double //Current temperature in **Kelvin** is source of truth
+    var kelvin: Double                  //Temperature in *Kelvin* is source of truth
     var celsius: Double {
         get {return kelvin + celsiusAbsoluteZero}
         set {kelvin = newValue - celsiusAbsoluteZero}
@@ -40,6 +40,8 @@ struct TemperatureModel {
     init(kelvin k: Double) {
         kelvin = k
     }
+    
+    // Additional initializer may not be necessary, but easy to do
     init(celsius c: Double) {
         kelvin = c - celsiusAbsoluteZero
     }
@@ -47,7 +49,7 @@ struct TemperatureModel {
         kelvin = r / rankineMultiplier
     }
     init(fahrenheit f: Double) {
-        kelvin = (f - fahrenheitAbsoluteZero) / rankineMultiplier 
+        kelvin = (f - fahrenheitAbsoluteZero) / rankineMultiplier
     }
     
 }
