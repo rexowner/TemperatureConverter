@@ -1,25 +1,44 @@
 //
-//  ContentView.swift
-//  TemperatureConverter
+//  TemperatureView.swift
+//  TemperatureConverter Project
 //
-//  Created by Les Poltrack on 11/10/21.
+//  Final Project
+//  CIS 137 OL
+//  Group 4
+//  Conrad Boucher & Les Poltrack
+//  conradboucher@my.smccd.edu
+//  lespoltrack@my.smccd.edu
+//  This is the primary view when the app is entered
+//  December 4, 2021
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct TemperatureView: View {
     @GestureState private var offset: CGSize = .zero
     @State private var location: CGPoint = CGPoint(x: 50, y:200)
     
-    let thermometerHeight: CGFloat
+    var thermometerHeight: CGFloat
     let thermometerWidth: CGFloat
     let thermometerYOffset: CGFloat
     let bulbDiameter: CGFloat = 60
 
     init() {
-        thermometerHeight = 400
         thermometerWidth = 40
         thermometerYOffset = 20
+
+        var screenWidth: CGFloat
+        var screenHeight: CGFloat
+        #if os(macOS)  // on Mac, not full screen width, just do a window
+            screenWidth = 500.0
+        #else  // on iOS, use the full screen size
+            screenWidth = UIScreen.main.bounds.width
+            screenHeight = UIScreen.main.bounds.height
+        #endif
+        
+        thermometerHeight = screenHeight * 2.0 / 3.0
+        
+
     }
     
     var body: some View {
@@ -99,11 +118,11 @@ struct ContentView: View {
                 VStack {
                     Text("Water Boils")
                         .foregroundColor(.black)
-                        .font(.title)
+                        .font(.headline)
                     Spacer()
                     Text("Absolute Zero")
                     .foregroundColor(.black)
-                    .font(.title)
+                    .font(.headline)
                         .position(x: 0, y: thermometerHeight)
                 }
             }
@@ -115,6 +134,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TemperatureView()
     }
 }
