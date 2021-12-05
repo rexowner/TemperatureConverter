@@ -14,19 +14,19 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TemperatureView: View {
     @ObservedObject var viewModel: TemperatureStore
     
     @GestureState private var offset: CGSize = .zero
     @State private var bulbLocation: CGPoint = CGPoint(x: 40, y:0)
-    
+    @State private var showingAlert = false
+
     var thermometerHeight: CGFloat
     let thermometerWidth: CGFloat
     let thermometerYOffset: CGFloat
     let bulbDiameter: CGFloat = 60
-
-    @State private var setFahrenheit = "212.0"
     
     init() {
         thermometerWidth = 40
@@ -56,6 +56,7 @@ struct TemperatureView: View {
             VStack {
                 HStack(alignment: .top) {
                     VStack {
+                        VStack{
                         // Fahrenheit Text Button and read-out
                         NavigationLink(
                             destination: ScaleDetailView(
@@ -71,8 +72,33 @@ struct TemperatureView: View {
                             .foregroundColor(.red)
                             .font(.title2)
                             .padding(.bottom, 30)
-    
+                        }.onTapGesture{
+                            print("hahaha")
+                        }
                         
+                        /*  TODO: WAs going to use TExt fields to enter
+                        TextField("\(viewModel.fahrenheit)\u{00b0}F", text: $textFieldInput, onEditingChanged: {
+                            (changed) in
+                            if !changed{
+                                viewModel.setFahrenheit(Double(textFieldInput)!)
+                            }
+                        })
+                        .keyboardType(.numberPad)
+                        .font(.title)
+                        .foregroundColor(.red)
+
+                        TextField("\(viewModel.fahrenheit)\u{00b0}F", text: $textFieldInput, onEditingChanged: {
+                            (changed) in
+                            if !changed{
+                                viewModel.setFahrenheit(Double(textFieldInput)!)
+                            }
+                        })
+                        .keyboardType(.numberPad)
+                        .font(.title)
+                        .foregroundColor(.red)
+ 
+ 
+ */
                         // Celsius Text Button and read-out
                         NavigationLink(
                             destination: ScaleDetailView(
@@ -103,9 +129,7 @@ struct TemperatureView: View {
                             .font(.title2)
                             .padding(.bottom, 30)
                         
-                        
                         // Rankine Text Button and read-out
-
                         NavigationLink(
                             destination: ScaleDetailView(
                                 title: "Rankine Scale",
@@ -120,11 +144,20 @@ struct TemperatureView: View {
                             .foregroundColor(.red)
                             .font(.title2)
                             .padding(.bottom, 30)
+/* TODO Link for setting temperature
+                        NavigationLink(
+                            destination: SetTemperatureView(),
+                            label: {Text("Set #\nTemperature")
+                            .foregroundColor(.blue)
+                            .font(.title)
+                            })
+                            .multilineTextAlignment(.center)
 
-                        Spacer()
+     TODO: Remove - Temporary View for position readout
                         Text("Location: \(Int(bulbLocation.y))")
                             .padding()
                             .frame(width: 150)
+ */
                     }
                     .padding(.top, 30)
                     
@@ -182,8 +215,12 @@ struct TemperatureView: View {
 
                     }
                 }
-            }.navigationTitle("Temperature Scales")
+
+            }
+            .navigationTitle("Temperature Scales")
         }
+        .onTapGesture {self.hideKeyboard()}
+
     }
     
     let fahrenheitText = "The Fahrenheit scale was established in 1724.\n\nIt is named for Daniel Gabriel Fahrenheit.\n\nAccording to legend, 0\u{00b0}F was established as the freezing temperature of a mixture of water and a salt, and 90\u{00b0}F was an (incorrect) estimate of human body temperature.  \n\nThe scale is used in only a few countries, including Liberia, parts of Belize, a few Caribbianm nations and the United States."
@@ -192,6 +229,15 @@ struct TemperatureView: View {
     let rankineText = "The Rankine Scale was established in 1859.\n\nIt is named for Macquorn Rankine.\n\nZero (0\u{00b0}R) on the Rankine Scale is 'Absolute Zero.'  A temperature difference on the Rankine scale is the same as the Fahrenheit scale, so its relationship to the Fahrenheit scale is analagous to the Kelvin scale to Celsius.\n\nIt is still used in physical sciences and engineering when heat differences are measured in Fahrenheit degrees."
     let meniscusColor = Color(red: 0.8, green: 0.0, blue: 0.0)
 
+    func hideKeyboard() {
+     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
 
 }
 

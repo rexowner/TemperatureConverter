@@ -47,4 +47,8 @@ class TemperatureStore: ObservableObject {
     var rankine: Double {
         return model.rankine
     }
+    
+    func setFahrenheit(_ value: Double) {
+        model.fahrenheit = value
+    }
 }
