@@ -13,7 +13,8 @@
 		AAA8D0DA273C78A200E06924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA8D0D9273C78A200E06924 /* Assets.xcassets */; };
 		AAA8D0DD273C78A200E06924 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA8D0DC273C78A200E06924 /* Preview Assets.xcassets */; };
 		AAAAEBB3275B2A3300570EE6 /* TemperatureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAAEBB2275B2A3300570EE6 /* TemperatureStore.swift */; };
-		AACA93CE2746247E00482EB6 /* ScaleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACA93CD2746247E00482EB6 /* ScaleDetail.swift */; };
+		AACA93CE2746247E00482EB6 /* ScaleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACA93CD2746247E00482EB6 /* ScaleDetailView.swift */; };
+		AACE193B275D36DE00879CDF /* NumbersOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACE193A275D36DE00879CDF /* NumbersOnly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		AAA8D0DC273C78A200E06924 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAA8D0DE273C78A200E06924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAAAEBB2275B2A3300570EE6 /* TemperatureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureStore.swift; sourceTree = "<group>"; };
-		AACA93CD2746247E00482EB6 /* ScaleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDetail.swift; sourceTree = "<group>"; };
+		AACA93CD2746247E00482EB6 /* ScaleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDetailView.swift; sourceTree = "<group>"; };
+		AACE193A275D36DE00879CDF /* NumbersOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOnly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +60,11 @@
 		AAA8D0D4273C78A100E06924 /* TemperatureConverter */ = {
 			isa = PBXGroup;
 			children = (
+				AACE193A275D36DE00879CDF /* NumbersOnly.swift */,
 				AA82BC482748427800EE35DE /* TemperatureModel.swift */,
 				AAAAEBB2275B2A3300570EE6 /* TemperatureStore.swift */,
 				AAA8D0D7273C78A100E06924 /* TemperatureView.swift */,
-				AACA93CD2746247E00482EB6 /* ScaleDetail.swift */,
+				AACA93CD2746247E00482EB6 /* ScaleDetailView.swift */,
 				AAA8D0D5273C78A100E06924 /* TemperatureConverterApp.swift */,
 				AAA8D0D9273C78A200E06924 /* Assets.xcassets */,
 				AAA8D0DE273C78A200E06924 /* Info.plist */,
@@ -151,7 +154,8 @@
 				AAA8D0D8273C78A100E06924 /* TemperatureView.swift in Sources */,
 				AAAAEBB3275B2A3300570EE6 /* TemperatureStore.swift in Sources */,
 				AAA8D0D6273C78A100E06924 /* TemperatureConverterApp.swift in Sources */,
-				AACA93CE2746247E00482EB6 /* ScaleDetail.swift in Sources */,
+				AACE193B275D36DE00879CDF /* NumbersOnly.swift in Sources */,
+				AACA93CE2746247E00482EB6 /* ScaleDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

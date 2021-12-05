@@ -8,6 +8,7 @@
 //  Conrad Boucher & Les Poltrack
 //  conradboucher@my.smccd.edu
 //  lespoltrack@my.smccd.edu
+//
 //  This is the viewmodel for the app
 //  December 4, 2021
 ////
@@ -15,14 +16,35 @@
 
 import SwiftUI
 
-struct TemperatureStore: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class TemperatureStore: ObservableObject {
+    
+    let kelvinWaterBoiling = 373.15
+    let thermometerHeight: CGFloat
+ //   var bulbLocation: CGFloat
+    
+    @Published private var model: TemperatureModel = CreateModel()
+    
+    init(thermometerHeight: CGFloat) {
+        self.thermometerHeight = thermometerHeight
     }
-}
-
-struct TemperatureStore_Previews: PreviewProvider {
-    static var previews: some View {
-        TemperatureStore()
+    
+    static func CreateModel() -> TemperatureModel {
+        return TemperatureModel(kelvin: 373.15)
+    }
+    
+    func dragTemperature(position: CGFloat) {
+        model.kelvin = (kelvinWaterBoiling / Double(thermometerHeight)) * Double(thermometerHeight - position)
+    }
+    var kelvin: Double {
+        return model.kelvin
+    }
+    var celsius: Double {
+        return model.celsius
+    }
+    var fahrenheit: Double {
+        return model.fahrenheit
+    }
+    var rankine: Double {
+        return model.rankine
     }
 }
