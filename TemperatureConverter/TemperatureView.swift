@@ -53,7 +53,9 @@ struct TemperatureView: View {
             }
         
         NavigationView {
+            
             VStack {
+                
                 HStack(alignment: .top) {
                     VStack {
                         VStack{
@@ -66,7 +68,7 @@ struct TemperatureView: View {
                             label: {
                                 Text("Fahrenheit")
                                     .foregroundColor(.blue)
-                                    .font(.title)
+                                    .font(.system(size: 21))
                             })
                         Text("\(viewModel.fahrenheit, specifier: "%.1f") \u{00b0}F")
                             .foregroundColor(.red)
@@ -107,7 +109,7 @@ struct TemperatureView: View {
                                 link: "https://en.wikipedia.org/wiki/Celsius"),
                             label: {Text("Celsius")
                             .foregroundColor(.blue)
-                            .font(.title)
+                            .font(.system(size: 21))
                             })
                         Text("\(viewModel.celsius, specifier: "%.1f") \u{00b0}C")
                             .foregroundColor(.red)
@@ -122,7 +124,7 @@ struct TemperatureView: View {
                                 link: "https://en.wikipedia.org/wiki/Kelvin"),
                             label: {Text("Kelvin")
                             .foregroundColor(.blue)
-                            .font(.title)
+                            .font(.system(size: 21))
                             })
                         Text("\(viewModel.kelvin, specifier: "%.2f") \u{00b0}K")
                             .foregroundColor(.red)
@@ -137,7 +139,7 @@ struct TemperatureView: View {
                                 link: "https://en.wikipedia.org/wiki/Rankine_scale"),
                             label: {Text("Rankine")
                             .foregroundColor(.blue)
-                            .font(.title)
+                            .font(.system(size: 21))
                             })
 
                         Text("\(viewModel.rankine, specifier: "%.2f") \u{00b0}R")
@@ -165,7 +167,7 @@ struct TemperatureView: View {
                     ZStack(alignment: .top) {
                         // Following rectangle is "bottom" "mercury" portion of thermometer
                         Rectangle()
-                            .fill(Color.red)
+                            .fill(viewModel.color)
                             .border(Color.black, width: 1)
                             .cornerRadius(20)
                             .frame(width: thermometerWidth, height: thermometerHeight)
@@ -181,7 +183,7 @@ struct TemperatureView: View {
                         
                         // Following circle is the "bulb" at bottom
                         Circle()
-                            .fill(Color.red)
+                            .fill(viewModel.color)
                             .frame(width:bulbDiameter, height: bulbDiameter)
                             .position( CGPoint(x: 40, y:thermometerHeight))
                             .offset(y: thermometerYOffset)
@@ -205,13 +207,13 @@ struct TemperatureView: View {
                         Text("- Water Freezes")
                         .foregroundColor(.black)
                         .font(.headline)
-                            .padding(.top, thermometerHeight * 100.0/373.15)
+                        .padding(.top, thermometerHeight * 0.16)
 
                         
                         Text("- Absolute Zero")
                         .foregroundColor(.black)
                         .font(.headline)
-                            .padding(.top, thermometerHeight * 273.15/373.15)
+                        .padding(.top, (thermometerHeight * 0.6))
 
                     }
                 }
@@ -227,7 +229,7 @@ struct TemperatureView: View {
     let celsiusText = "The current Celsius scale was established in 1743.\n\nIt is hamed for Anders Celsius, who lived from 1701-1744.\n\n0\u{00b0}C and 100\u{00b0}Care respectively the freezing and boiling points of water.\n\nThe Celsius scale is the most common temperature scale used in most of the world."
     let kelvinText = "The Kelvin scale was established circa 1848 by William Thomson, who was later made \"Lord Kelvin\" by the British Monarchy.\n\n0\u{00b0} on the Kelvin Scale is Absolute Zero, and no matter can have a temperature lower than that.  Degrees are the same size as Celsius degrees.\n\nThe Kelvin scale is widely used for scientific and technical purposes throughout the world."
     let rankineText = "The Rankine Scale was established in 1859.\n\nIt is named for Macquorn Rankine.\n\nZero (0\u{00b0}R) on the Rankine Scale is 'Absolute Zero.'  A temperature difference on the Rankine scale is the same as the Fahrenheit scale, so its relationship to the Fahrenheit scale is analagous to the Kelvin scale to Celsius.\n\nIt is still used in physical sciences and engineering when heat differences are measured in Fahrenheit degrees."
-    let meniscusColor = Color(red: 0.8, green: 0.0, blue: 0.0)
+    let meniscusColor = Color(red: 0.0, green: 0.8, blue: 0.2)
 
     func hideKeyboard() {
      UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)

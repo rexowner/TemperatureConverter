@@ -51,4 +51,9 @@ class TemperatureStore: ObservableObject {
     func setFahrenheit(_ value: Double) {
         model.fahrenheit = value
     }
+    
+    //adding dynamic color change to thermometer
+    var color: Color {
+        return model.color
+    }
 }

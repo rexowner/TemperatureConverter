@@ -15,6 +15,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // NOT SURE THIS ENUM IS NEEDED...
 enum TemperatureScale {
@@ -68,6 +69,11 @@ struct TemperatureModel {
         }
         set {rankine = newValue - fahrenheitAbsoluteZero}
     }
+    var color: Color {
+        get {
+            return Color(red: (kelvin/373.15), green: 0, blue: (1-kelvin/373.15))
+        }
+    }
     
     // Initializers
     init(kelvin k: Double) {
@@ -83,6 +89,4 @@ struct TemperatureModel {
     init(fahrenheit f: Double) {
         kelvin = (f - fahrenheitAbsoluteZero) / rankineMultiplier
     }
-
-    
 }
